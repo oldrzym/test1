@@ -1,0 +1,16 @@
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET'])
+def search():
+    args = request.args
+    name = args.get('name')
+    message = args.get('message')
+
+    result = f'Hello {name}! {message}!'
+
+    return result
+
+if __name__ == "__main__":
+   app.run()
